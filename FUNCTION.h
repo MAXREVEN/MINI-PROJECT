@@ -29,21 +29,23 @@ typedef struct {
     char date_hr_collecte[20];        // "JJ/MM/AAAA HH:MM"
     float volume_collecte;
 } Collecte;
-Conteneur saisir_conteneur()
-int  ajouter_conteneur(Conteneur tab[], int *n, conteneur c);
+Conteneur saisir_conteneur();
+int  ajouter_conteneur(Conteneur tab[], int *n);
 int  modifier_conteneur(Conteneur tab[], int n, int id_cont);
 int  supprimer_conteneur(Conteneur tab[], int *n, int id_cont);
 Conteneur *chercher_conteneur(Conteneur tab[], int n, int id_cont);
 void afficher_conteneur_par_zone(Conteneur tab[], int n, int id_zone);
+void afficher_conteneurs(Conteneur tab[], int n);
+void afficher_conteneur(Conteneur c);
 Camion saisir_camion();
-int  ajouter_camion(Camion tab[], int *n, camion c);
+int  ajouter_camion(Camion tab[], int *n);
 int  modifier_camion(Camion tab[], int n, int id_cam);
 int supprimer_camion(Camion tab[],int *n,int id_cam);
 Camion  *chercher_camion_disponible(Camion tab[], int n);
 void afficher_camion(Camion tab[],int n);
 void afficher_camion_par_zone(Camion tab[],int n,int id_zone);
 Zone saisir_zone();
-int  ajouter_zone(Zone tab[], int *n, zone z);
+int  ajouter_zone(Zone tab[], int *n);
 int  modifier_zone(Zone tab[], int n, int id_zone);
 int supprimer_zone(Zone tab[],int *n,int id_zone);
 int chercher_zone(Zone tab[],int n,int id_zone);
