@@ -1,7 +1,6 @@
 #include<stdio.h>
 Conteneur saisir_conteneur(){
     Conteneur c;
-    float max_occup_cont, val_notif_cont, val_occup_cont, int id_cont,id_zone,etat,char emplacement[50];
     printf("saisir l'id du conteneur =");
     scanf("%d",&c.id_cont);
     printf("saisir l'emplacement du conteneur =");
@@ -16,7 +15,7 @@ Conteneur saisir_conteneur(){
     scanf("%d",&c.id_zone);
     printf("saisir l'etat du conteneur =");
     scanf("%d",&c.etat);
-    return 1;}
+    return c;}
 
 int  ajouter_conteneur(Conteneur tab[], int *n){
     Conteneur c=saisir_conteneur();
