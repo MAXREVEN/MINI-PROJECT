@@ -33,16 +33,16 @@ Conteneur saisir_conteneur()
 int  ajouter_conteneur(Conteneur tab[], int *n, conteneur c);
 int  modifier_conteneur(Conteneur tab[], int n, int id_cont);
 int  supprimer_conteneur(Conteneur tab[], int *n, int id_cont);
-conteneur *chercher_conteneur(Conteneur tab[], int n, int id_cont);
+Conteneur *chercher_conteneur(Conteneur tab[], int n, int id_cont);
 void afficher_conteneur_par_zone(Conteneur tab[], int n, int id_zone);
 Camion saisir_camion();
 int  ajouter_camion(Camion tab[], int *n, camion c);
 int  modifier_camion(Camion tab[], int n, int id_cam);
 int supprimer_camion(Camion tab[],int *n,int id_cam);
-int chercher_camion_disponible(Camion tab[],int n);
+Camion  *chercher_camion_disponible(Camion tab[], int n);
 void afficher_camion(Camion tab[],int n);
 void afficher_camion_par_zone(Camion tab[],int n,int id_zone);
-Zone saisir_zone()
+Zone saisir_zone();
 int  ajouter_zone(Zone tab[], int *n, zone z);
 int  modifier_zone(Zone tab[], int n, int id_zone);
 int supprimer_zone(Zone tab[],int *n,int id_zone);
@@ -54,7 +54,4 @@ void hist_collecte(Collecte *tabcoll,int f);
 struct tm maintenant(void);
 void date(char *buf, size_t size);
 Collecte format(Conteneur a, Camion b, int z);
-Conteneur saisir_cont();
-Camion saisir_cam();
-Zone saisir_zone();
-#endif // function_H_INCLUDED
+#endif
