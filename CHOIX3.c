@@ -21,7 +21,7 @@ void vider_conteneur(Conteneur *tabcont,Camion *tabcam,Collecte *tabcoll,int n,i
             break;
         }
     }
-    *f++;
+    (*f)++;
     tabcoll[*f]=format(tabcont[x],tabcam[y],z);
 }
 void dech_camion(Camion *tabcam,int m)
