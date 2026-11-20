@@ -1,7 +1,6 @@
 #include<stdio.h>
 Camion saisir_camion(){
     Camion c;
-    float max_occup, val_occup, int id_cont,id_zone,etat_dispo,id_cam,matricule;
     printf("saisir l'id du camion =");
     scanf("%d",&c.id_cam);
     printf("saisir la matricule du camion =");
@@ -14,7 +13,7 @@ Camion saisir_camion(){
     scanf("%d",&c.id_zone);
     printf("saisir l'etat du camion =");
     scanf("%d",&c.etat_dispo);
-    return 1;}
+    return c;}
 
 int  ajouter_camion(Camion tab[], int *n){
     Camion c=saisir_camion();
