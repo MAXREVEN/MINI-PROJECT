@@ -12,7 +12,7 @@ void vider_conteneur(Conteneur *tabcont,Camion *tabcam,Collecte *tabcoll,int n,i
     scanf("%i",&x);
     for (int i=0;i<m;i++)
     {
-        if (tabcam[i].max_occup_cam+tabcam[i].val_occup_cam>=tabcont[x].val_occup_cont)
+        if (tabcam[i].max_occup_cam-tabcam[i].val_occup_cam>=tabcont[x].val_occup_cont)
         {
             tabcam[i].val_occup_cam+=tabcont[x].val_occup_cont;
             z=tabcont[x].val_occup_cont;
