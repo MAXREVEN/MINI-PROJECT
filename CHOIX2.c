@@ -101,6 +101,10 @@ void afficher_camion_par_zone(Camion tab[], int n, int id_zone){
     if (!trouve) printf("aucun camion dans la zone %d\n",id_zone);
 }
 
+void afficher_camions(Camion tab[], int n, int id_zone){
+    for(int i=0;i<n;i++) afficher_camion(tab[i]);
+}
+
 Zone saisir_zone(){
     Zone z;
     char description[50], char nom_zone[20], int id_zone;
