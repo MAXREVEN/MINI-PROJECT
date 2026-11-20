@@ -1,6 +1,6 @@
 #include<stdio.h>
-camion saisir_camion(){
-    camion c;
+Camion saisir_camion(){
+    Camion c;
     float max_occup, val_occup, int id_cont,id_zone,etat_dispo,id_cam,matricule;
     printf("saisir l'id du camion =");
     scanf("%d",&c.id_cam);
@@ -16,15 +16,15 @@ camion saisir_camion(){
     scanf("%d",&c.etat_dispo);
     return 1;}
 
-int  ajouter_camion(camion tab[], int *n){
-    camion c=saisir_camion();
+int  ajouter_camion(Camion tab[], int *n){
+    Camion c=saisir_camion();
     for (int i=0;i<*n;i++){
         if (tab[i].id_cam==c.id_cam) return 0;   //on doit eviter la redondance de c dans tab
     tab[*n]=c;
     (*n)++;
     return 1;}}
 
-int  modifier_camion(camion tab[], int n, int id_cam){
+int  modifier_camion(Camion tab[], int n, int id_cam){
     int choix;
     for (int i=0;i<n;i++){
         if (tab[i].id_cam==id_cam){
@@ -60,7 +60,7 @@ int  modifier_camion(camion tab[], int n, int id_cam){
         break;}
     return 0;}}
 
-int supprimer_camion(camion tab[], int *n, int id){
+int supprimer_camion(Camion tab[], int *n, int id){
     int pos=-1;
     for (int i=0;i<*n;i++){
         if (tab[i].id_cam==id){
@@ -75,12 +75,12 @@ int supprimer_camion(camion tab[], int *n, int id){
             return 1;}
     return 0;}
 
-conteneur  *chercher_camion_disponible(conteneur tab[], int n){
+Camion  *chercher_camion_disponible(Camion tab[], int n){
     for (int i=0;i<n;i++){
         if (tab[i].etat_dispo==1) return &tab[i];}
     return NULL;}
 
-void afficher_camion(camion c){
+void afficher_camion(Camion c){
         printf("l'id du camion : %d\n",c.id_cam);
         printf("la valeur maximale d'occupation : %.2f\n",c.max_occup_cam);
         printf("la valeur d'occupation actuelle : %.2f\n",c.val_occup_cam);
@@ -92,7 +92,7 @@ void afficher_camion(camion c){
                 printf("----ALERTE !!! le taux de remplissage du camion identifie par %d est trop eleve !! veuillez faire une decharge ---\n",c.id_cam);}
 }
 
-void afficher_camion_par_zone(camion tab[], int n, int id_zone){
+void afficher_camion_par_zone(Camion tab[], int n, int id_zone){
     int trouve=0;
     for(int i=0;i<n;i++){
         if (tab[i].id_zone==id_zone){
@@ -102,8 +102,8 @@ void afficher_camion_par_zone(camion tab[], int n, int id_zone){
     if (!trouve) printf("aucun camion dans la zone %d\n",id_zone);
 }
 
-zone saisir_zone(){
-    zone z;
+Zone saisir_zone(){
+    Zone z;
     char description[50], char nom_zone[20], int id_zone;
     printf("saisir l'id de la zone =");
     scanf("%d",&z.id_zone);
@@ -113,15 +113,15 @@ zone saisir_zone(){
     gets(z.description);
     return 1;}
 
-int  ajouter_zone(zone tab[], int *n){
-    zone z=saisir_zone();
+int  ajouter_zone(Zone tab[], int *n){
+    Zone z=saisir_zone();
     for (int i=0;i<*n;i++){
         if (tab[i].id_zone==z.id_zone) return 0;   //on doit eviter la redondance de z dans tab
     tab[*n]=c;
     (*n)++;
     return 1;}}
 
-int  modifier_zone(zone tab[], int n, int id_zone){
+int  modifier_zone(Zone tab[], int n, int id_zone){
     int choix;
     for (int i=0;i<n;i++){
         if (tab[i].id_zone==id_zone){
@@ -144,7 +144,7 @@ int  modifier_zone(zone tab[], int n, int id_zone){
         break;}
     return 0;}}
 
-int supprimer_zone(zone tab[], int *n, int id){
+int supprimer_zone(Zone tab[], int *n, int id){
     int pos=-1;
     for (int i=0;i<*n;i++){
         if (tab[i].id_zone==id){
@@ -159,7 +159,7 @@ int supprimer_zone(zone tab[], int *n, int id){
             return 1;}
     return 0;}
 
-void afficher_zones(zone tab[], int n){
+void afficher_zones(Zone tab[], int n){
     for(int i=0;i<n;i++){
             printf("--- les informations de la zone identifie par %d ---\n",tab[i]id_cam);
             printf("le nom de la zone : %s\n",tab[i].nom_zone);
