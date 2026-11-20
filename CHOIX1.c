@@ -1,4 +1,7 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "FUNCTION.h
 Conteneur saisir_conteneur(){
     Conteneur c;
     printf("saisir l'id du conteneur =");
