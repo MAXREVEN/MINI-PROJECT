@@ -37,7 +37,6 @@ void hist_collecte(Collecte *tabcoll,int f)
 {
     for (int i=0;i<f;i++)
     {
-        printf("id_collecte: %i\nid_cont: %i\nid_cam: %i\n,date: %s,volume:");
+        printf("id_collecte: %i\nid_cont: %i\nid_cam: %i\n,date: %s,volume:",tabcoll[i].id_collecte,tabcoll[i].id_cont,tabcoll[i].id_cam,tabcoll[i].date,tabcoll[i].volume);
     }
 }
-
