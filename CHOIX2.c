@@ -4,11 +4,11 @@ Camion saisir_camion(){
     printf("saisir l'id du camion =");
     scanf("%d",&c.id_cam);
     printf("saisir la matricule du camion =");
-    scanf("%d",&c.matrcicule);
+    scanf("%d",&c.matricule);
     printf("saisir le maximum d'occupation du camion =");
-    scanf("%f",&c.max_occup);
+    scanf("%f",&c.max_occup_cam);
     printf("saisir la valuer d'occupation actuelle du camion");
-    scanf("%f",&c.val_occup);
+    scanf("%f",&c.val_occup_cam);
     printf("saisir la zone du camion");
     scanf("%d",&c.id_zone);
     printf("saisir l'etat du camion =");
@@ -101,7 +101,7 @@ void afficher_camion_par_zone(Camion tab[], int n, int id_zone){
     if (!trouve) printf("aucun camion dans la zone %d\n",id_zone);
 }
 
-void afficher_camions(Camion tab[], int n, int id_zone){
+void afficher_camions(Camion tab[], int n){
     for(int i=0;i<n;i++) afficher_camion(tab[i]);
 }
 
