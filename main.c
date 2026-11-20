@@ -19,7 +19,6 @@ int main()
         printf("3. Opérations de collecte et vidage\n");
         printf("4. Statistiques et alertes\n");
         printf("0. Quitter\n" );
-
         printf("Donner votre choix: ");
         scanf("%d", &choix);
         switch (choix)
@@ -35,7 +34,6 @@ int main()
                 printf("4. Afficher la liste des conteneurs\n");
                 printf("5. Afficher les conteneurs filtrés par zone\n");
                 printf("0. precedent\n" );
-
                 printf("Donner votre choix: ");
                 scanf("%d", &choix);
                 switch (choix)
