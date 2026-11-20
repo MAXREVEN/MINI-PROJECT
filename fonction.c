@@ -3,60 +3,6 @@
 #include <time.h>
 #include "FUNCTION.h"
 
-Conteneur saisir_cont()
-{
-    Conteneur c;
-    do{
-        printf("ID:");
-        scanf("%d",&c.id_cont);
-    }while (!10000000<c.id_cont<99999999);  //id should be 8-digit long
-    printf("emplacement:");
-    scanf("%s",c.emplacement);
-    printf("max occupaction");
-    scanf("%f",&c.max_occup_cont);
-    printf("valeur notif");
-    scanf("%f",&c.val_notif_cont);
-    printf("valeur d'occupation");
-    scanf("%f",&c.val_occup_cont);
-    printf("id de la zone");
-    scanf("%s",c.id_zone);
-    printf("Etat: ");
-    scanf("%i",&c.etat);
-    return c;
-
-}
-Camion saisir_cam()
-{
-    Camion c;
-    do{
-        printf("ID:");
-        scanf("%d",&c.id_cam);
-    }while (!10000000<c.id_cam<99999999);  //id should be 8-digit long
-    printf("matricule:");
-    scanf("%s",c.matricule);
-    printf("max occupaction");
-    scanf("%f",&c.max_occup_cam);
-    printf("valeur d'occupation");
-    scanf("%f",&c.val_occup_cam);
-    printf("id de la zone");
-    scanf("%s",c.id_zone);
-    printf("Etat: ");
-    scanf("%i",&c.etat_dispo);
-    return c;
-}
-Zone saisir_zone()
-{
-    Zone z;
-    do{
-        printf("ID:");
-        scanf("%d",&z.id_zone);
-    }while (!10000000<z.id_zone<99999999);  //id should be 8-digit long
-    printf("Nom: ");
-    scanf("%s",z.nom_zone);
-    printf("Description");
-    scanf("%s",z.description);
-    return z;
-}
 Collecte format(Conteneur a,Camion b,int z)
 {
     Collecte x;
