@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1795103575 source:c:\users\mega-pc\desktop\c projects\rendu\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"FUNCTION.h"
+
+1795105842 c:\users\mega-pc\desktop\c projects\rendu\function.h
+
+1795105435 source:c:\users\mega-pc\desktop\c projects\rendu\fonction.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"FUNCTION.h"
+

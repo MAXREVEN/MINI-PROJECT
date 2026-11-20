@@ -1,0 +1,10 @@
+*.o
+*.obj
+*.exe
+*.out
+*.app
+a.out
+*.dSYM/
+*.dSYM
+build/
+bin/
