@@ -88,7 +88,7 @@ Conteneur  *chercher_conteneur(conteneur tab[], int n, int id){
     return NULL;}
 
 
-void afficher_conteneur(Conteneur c){{
+void afficher_conteneur(Conteneur c){
         printf("l'id du conteneur : %d\n",c.id_cont);
         printf("l'emplacement du conteneur : %s\n",c.emplacement);
         printf("la valeur maximale d'occupation : %.2f\n", c.max_occup_cont);
@@ -110,4 +110,6 @@ void afficher_conteneur_par_zone(Conteneur tab[], int n, int id_zone){
             trouve=1;}}
     if (!trouve) printf("aucun conteneur dans la zone %d",id_zone);
 }
+void afficher_conteneurs(Conteneur tab[], int n){
+    for(int i=0;i<n;i++) afficher_conteneur(tab[i]);}
 
