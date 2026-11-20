@@ -1,6 +1,6 @@
 #include<stdio.h>
-conteneur saisir_conteneur(){
-    conteneur c;
+Conteneur saisir_conteneur(){
+    Conteneur c;
     float max_occup_cont, val_notif_cont, val_occup_cont, int id_cont,id_zone,etat,char emplacement[50];
     printf("saisir l'id du conteneur =");
     scanf("%d",&c.id_cont);
@@ -18,15 +18,15 @@ conteneur saisir_conteneur(){
     scanf("%d",&c.etat);
     return 1;}
 
-int  ajouter_conteneur(conteneur tab[], int *n){
-    conteneur c=saisir_conteneur();
+int  ajouter_conteneur(Conteneur tab[], int *n){
+    Conteneur c=saisir_conteneur();
     for (int i=0;i<*n;i++){
         if (tab[i].id_cont==c.id_cont) return 0;   //on doit eviter la redondance de c dans tab
     tab[*n]=c;
     (*n)++;
     return 1;}}
 
-int  modifier_conteneur(conteneur tab[], int n, int id){
+int  modifier_conteneur(Conteneur tab[], int n, int id){
     int choix;
     for (int i=0;i<n;i++){
         if (tab[i].id_cont==id){
@@ -67,7 +67,7 @@ int  modifier_conteneur(conteneur tab[], int n, int id){
         break;}
     return 0;}}
 
-int supprimer_conteneur(conteneur tab[], int *n, int id){
+int supprimer_conteneur(Conteneur tab[], int *n, int id){
     int pos=-1;
     for (int i=0;i<*n;i++){
         if (tab[i].id_cont==id){
@@ -82,13 +82,13 @@ int supprimer_conteneur(conteneur tab[], int *n, int id){
             return 1;}
     return 0;}
 
-conteneur  *chercher_conteneur(conteneur tab[], int n, int id){
+Conteneur  *chercher_conteneur(conteneur tab[], int n, int id){
     for (int i=0;i<n;i++){
         if (tab[i].id_cont==id) return &tab[i];}
     return NULL;}
 
 
-void afficher_conteneur(conteneur c){{
+void afficher_conteneur(Conteneur c){{
         printf("l'id du conteneur : %d\n",c.id_cont);
         printf("l'emplacement du conteneur : %s\n",c.emplacement);
         printf("la valeur maximale d'occupation : %.2f\n", c.max_occup_cont);
@@ -101,7 +101,7 @@ void afficher_conteneur(conteneur c){{
         }
 }
 
-void afficher_conteneur_par_zone(conteneur tab[], int n, int id_zone){
+void afficher_conteneur_par_zone(Conteneur tab[], int n, int id_zone){
     int trouve=0;
     for(int i=0;i<n;i++){
         if (tab[i].id_zone==id_zone){
