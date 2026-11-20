@@ -1,4 +1,7 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "FUNCTION.h
 Camion saisir_camion(){
     Camion c;
     printf("saisir l'id du camion =");
