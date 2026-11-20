@@ -7,7 +7,7 @@ void vider_conteneur(Conteneur *tabcont,Camion *tabcam,Collecte *tabcoll,int n,i
 {
     int x=0,y=-1,z=0;
     for (int i=0;i<n;i++)
-        printf("conteuneur '%i': valeur d'occupation: %i\n",n,tabcont[i].val_occup_cont);
+        printf("conteuneur '%i': valeur d'occupation: %i\n",i,tabcont[i].val_occup_cont);
     printf("choisir un conteuneur a vider");
     scanf("%i",&x);
     for (int i=0;i<m;i++)
@@ -28,7 +28,7 @@ void dech_camion(Camion *tabcam,int m)
 {
     int x=0;
     for (int i=0;i<m;i++)
-        printf("camion '%i': valeur d'occupation: %i\n",m,tabcam[i].val_occup_cam);
+        printf("camion '%i': valeur d'occupation: %i\n",i,tabcam[i].val_occup_cam);
     printf("choisir une camion a vider");
     scanf("%i",&x);
     tabcam[x].val_occup_cam=0;
