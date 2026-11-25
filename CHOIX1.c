@@ -7,26 +7,28 @@ Conteneur saisir_conteneur(){
     printf("saisir l'id du conteneur =");
     scanf("%d",&c.id_cont);
     printf("saisir l'emplacement du conteneur =");
-    gets(c.emplacement);
+    scanf("%s",c.emplacement);
     printf("saisir la valeur maximuim d'occupation =");
     scanf("%f",&c.max_occup_cont);
     printf("saisir la valeur valeur seuil =");
     scanf("%f",&c.val_notif_cont);
     printf("saisir la valeur d'occupation actuelle =");
     scanf("%f",&c.val_occup_cont);
-    printf("saisir la zone =");
+    printf("saisir la id de zone =");
     scanf("%d",&c.id_zone);
     printf("saisir l'etat du conteneur =");
     scanf("%d",&c.etat);
     return c;}
 
-int  ajouter_conteneur(Conteneur tab[], int *n){
+int  ajouter_conteneur(Conteneur tab[], int *n)
+{
     Conteneur c=saisir_conteneur();
     for (int i=0;i<*n;i++){
-        if (tab[i].id_cont==c.id_cont) return 0;   //on doit eviter la redondance de c dans tab
+        if (tab[i].id_cont==c.id_cont) return 0;}   //on doit eviter la redondance de c dans tab
     tab[*n]=c;
     (*n)++;
-    return 1;}}
+    return 1;
+}
 
 int  modifier_conteneur(Conteneur tab[], int n, int id){
     int choix;
@@ -84,7 +86,7 @@ int supprimer_conteneur(Conteneur tab[], int *n, int id){
             return 1;}
     return 0;}
 
-Conteneur  *chercher_conteneur(conteneur tab[], int n, int id){
+Conteneur  *chercher_conteneur(Conteneur tab[], int n, int id){
     for (int i=0;i<n;i++){
         if (tab[i].id_cont==id) return &tab[i];}
     return NULL;}
@@ -99,7 +101,7 @@ void afficher_conteneur(Conteneur c){
         printf("la zone du conteneur : %d\n",c.id_zone);
         printf("l'etat du conteneur : %d\n",c.etat);
         if (c.val_occup_cont>=c.val_notif_cont){
-            printf("----ALERTE !!! le taux d'occupation du conteneur identifie par l'id %d est trop eleve !! veuillez faire un vidage ---\n",c.id_cont);}
+            printf("----ALERTE !!! le taux d'occupation du conteneur identifie par l'id %d est trop eleve !! veuillez faire un vidage ---\n",c.id_cont);
         }
 }
 

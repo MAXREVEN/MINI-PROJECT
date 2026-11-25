@@ -19,7 +19,13 @@
 				<Option compiler="gcc-mingw64" />
 			</Target>
 		</Build>
-		<Unit filename="CHOIX 3.c">
+		<Unit filename="CHOIX1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="CHOIX2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="CHOIX3.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="FUNCTION.h">

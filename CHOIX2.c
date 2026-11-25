@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "FUNCTION.h
+#include "FUNCTION.h"
 Camion saisir_camion(){
     Camion c;
     printf("saisir l'id du camion =");
@@ -48,7 +48,7 @@ int  modifier_camion(Camion tab[], int n, int id_cam){
                 break;}
             case 3:{
                 printf("saisir la nouvelle valeur d'occupation actuelle =");
-                scanf("%d",&tab[i].val_occup_cam;}
+                scanf("%d",&tab[i].val_occup_cam);}
             case 4:{
                 printf("saisir la nouvelle zone =");
                 scanf("%d",&tab[i].id_zone);}
@@ -98,32 +98,31 @@ void afficher_camion_par_zone(Camion tab[], int n, int id_zone){
     int trouve=0;
     for(int i=0;i<n;i++){
         if (tab[i].id_zone==id_zone){
-            printf("--- les informations du camion identifie par %d ---\n",tab[i]id_cam);
+            printf("--- les informations du camion identifie par %d ---\n",tab[i].id_cam);
             afficher_camion(tab[i]);
             trouve=1;}}
     if (!trouve) printf("aucun camion dans la zone %d\n",id_zone);
 }
 
 void afficher_camions(Camion tab[], int n){
-    for(int i=0;i<n;i++) afficher_camion(tab[i]);
+    for(int i=0;i<n;i++)
+        afficher_camion(tab[i]);
 }
-
 Zone saisir_zone(){
     Zone z;
-    char description[50], char nom_zone[20], int id_zone;
     printf("saisir l'id de la zone =");
     scanf("%d",&z.id_zone);
     printf("saisir le nom de la zone =");
     gets(z.nom_zone);
     printf("saisir la description de la zone =");
     gets(z.description);
-    return 1;}
+    return z;}
 
 int  ajouter_zone(Zone tab[], int *n){
     Zone z=saisir_zone();
     for (int i=0;i<*n;i++){
         if (tab[i].id_zone==z.id_zone) return 0;   //on doit eviter la redondance de z dans tab
-    tab[*n]=c;
+    tab[*n]=z;
     (*n)++;
     return 1;}}
 
@@ -167,7 +166,7 @@ int supprimer_zone(Zone tab[], int *n, int id){
 
 void afficher_zones(Zone tab[], int n){
     for(int i=0;i<n;i++){
-            printf("--- les informations de la zone identifie par %d ---\n",tab[i]id_cam);
+            printf("--- les informations de la zone identifie par %d ---\n",tab[i].id_zone);
             printf("le nom de la zone : %s\n",tab[i].nom_zone);
             printf("la description de la zone : %s\n",tab[i].description);}}
 
