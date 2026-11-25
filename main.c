@@ -16,7 +16,7 @@ int main()
     {
         printf("1. Gestion des zones et conteneurs\n");
         printf("2. Gestion des camions de collecte\n");
-        printf("3. Opérations de collecte et vidage\n");
+        printf("3. OpÃ©rations de collecte et vidage\n");
         printf("4. Statistiques et alertes\n");
         printf("0. Quitter\n" );
         printf("Donner votre choix: ");
@@ -49,7 +49,9 @@ int main()
                     case 2:{
                         ajouter_zone(tabzone,&z)
                         break;}
-
+                    default:
+                        printf("choix errone!\n");
+                    }
                 }
                 case 2:
                 {
@@ -95,7 +97,7 @@ int main()
             while (run)
             {
                 printf("1. Ajouter un camion\n");
-                printf("2. Modifier la capacité ou les informations d'un camion\n");
+                printf("2. Modifier la capacitÃ© ou les informations d'un camion\n");
                 printf("3. Supprimer un camion\n");
                 printf("4. Afficher tous les camions et leur taux de remplissage\n");
                 printf( "0. precedent\n" );
@@ -143,8 +145,8 @@ int main()
             while (run)
             {
                 printf("1. Vider un conteneur\n");
-                printf("2. Décharger un camion\n");
-                printf("3. Afficher l'historique complet des opérations de collecte\n");
+                printf("2. DÃ©charger un camion\n");
+                printf("3. Afficher l'historique complet des opÃ©rations de collecte\n");
                 printf("0. precedent\n" );
 
                 printf("Donner votre choix: ");
@@ -178,10 +180,10 @@ int main()
             run = 1;
             while (run)
             {
-                printf("1. Afficher la liste prioritaire des conteneurs saturés ou en alerte\n");
-                printf("2. Statistiques de remplissage et de volume collecté par zone\n");
+                printf("1. Afficher la liste prioritaire des conteneurs saturÃ©s ou en alerte\n");
+                printf("2. Statistiques de remplissage et de volume collectÃ© par zone\n");
                 printf("3. Statistiques par camion\n");
-                printf("4. Tri des conteneurs ou des opérations\n");
+                printf("4. Tri des conteneurs ou des opÃ©rations\n");
                 printf("5. Recherche d'un conteneur ou d'un camion par ID, emplacement ou zone\n");
                 printf("0. precedent\n");
 
