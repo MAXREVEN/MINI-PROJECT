@@ -5,7 +5,7 @@
 
 int main()
 {
-    int choix,run,n,m,f;
+    int choix,run,n,m,f,z;
     time_t secondes;
     struct tm instant;
     Conteneur tabcont[30];
@@ -16,7 +16,7 @@ int main()
     {
         printf("1. Gestion des zones et conteneurs\n");
         printf("2. Gestion des camions de collecte\n");
-        printf("3. Op√©rations de collecte et vidage\n");
+        printf("3. OpÈrations de collecte et vidage\n");
         printf("4. Statistiques et alertes\n");
         printf("0. Quitter\n" );
         printf("Donner votre choix: ");
@@ -32,35 +32,52 @@ int main()
                 printf("2. Modifier les informations d'un conteneur\n");
                 printf("3. Supprimer un conteneur\n");
                 printf("4. Afficher la liste des conteneurs\n");
-                printf("5. Afficher les conteneurs filtr√©s par zone\n");
+                printf("5. Afficher les conteneurs filtres par zone\n");
                 printf("0. precedent\n" );
                 printf("Donner votre choix: ");
                 scanf("%d", &choix);
                 switch (choix)
                 {
                 case 1:
-                {
-                    ajouter_conteneur(Conteneur tab[], int *n);
-                    break;
+                {   printf("1. Ajouter un conteneur\n");
+                    printf("2. Ajouter une zone\n");
+                    scanf("%d", &c);
+                    switch (c){
+                    case 1:{
+                        ajouter_conteneur(tabcont, &n);
+                        break;}
+                    case 2:{
+                        ajouter_zone(tabzone,&z)
+                        break;}
+
                 }
                 case 2:
                 {
-                    modifier_conteneur(Conteneur tab[], int n, int id);
+                    int id;
+                    printf("saisir l'id du conteneur");
+                    scanf("%i",&id);
+                    modifier_conteneur(tabcont, n, id);
                     break;
                 }
                 case 3:
                 {
-                    supprimer_conteneur(Conteneur tab[], int *n, int id);
+                    int id;
+                    printf("saisir l'id du conteneur");
+                    scanf("%i",&id);
+                    supprimer_conteneur(tabcont, &n, id);
                     break;
                 }
                 case 4:
                 {
-                    afficher_conteneurs(Conteneur tab[], int n);
+                    afficher_conteneurs(tabcont, n);
                     break;
                 }
                 case 5:
                 {
-                    afficher_conteneur_par_zone(Conteneur tab[], int n, int id_zone)
+                    int id_zone;
+                    printf("id du zone");
+                    scanf("%i",&id_zone);
+                    afficher_conteneur_par_zone(tabcont, n, id_zone);
                     break;
                 }
                 case 0:
@@ -78,7 +95,7 @@ int main()
             while (run)
             {
                 printf("1. Ajouter un camion\n");
-                printf("2. Modifier la capacit√© ou les informations d'un camion\n");
+                printf("2. Modifier la capacitÈ ou les informations d'un camion\n");
                 printf("3. Supprimer un camion\n");
                 printf("4. Afficher tous les camions et leur taux de remplissage\n");
                 printf( "0. precedent\n" );
@@ -89,22 +106,28 @@ int main()
                 {
                 case 1:
                 {
-                    ajouter_camion(Camion tab[], int *m);
+                    ajouter_camion(tabcam, &m);
                     break;
                 }
                 case 2:
                 {
-                    modifier_camion(Camion tab[], int m, int id_cam);
+                    int id_cam;
+                    printf("id du camion");
+                    scanf("%i",&id_cam);
+                    modifier_camion(tabcam, m, id_cam);
                     break;
                 }
                 case 3:
                 {
-                    supprimer_camion(Camion tab[], int *m, int id);
+                    int id_cam;
+                    printf("id du camion");
+                    scanf("%i",&id_cam);
+                    supprimer_camion(tabcam, &m, id_cam);
                     break;
                 }
                 case 4:
                 {
-                    afficher_camions(Camion tab[], int m, int id_zone);
+                    afficher_camions(tabcam, m);
                     break;
                 }
                 case 0:
@@ -120,8 +143,8 @@ int main()
             while (run)
             {
                 printf("1. Vider un conteneur\n");
-                printf("2. D√©charger un camion\n");
-                printf("3. Afficher l'historique complet des op√©rations de collecte\n");
+                printf("2. DÈcharger un camion\n");
+                printf("3. Afficher l'historique complet des opÈrations de collecte\n");
                 printf("0. precedent\n" );
 
                 printf("Donner votre choix: ");
@@ -135,12 +158,12 @@ int main()
                 }
                 case 2:
                 {
-                    dech_camion(tabcam);
+                    dech_camion(tabcam,m);
                     break;
                 }
                 case 3:
                 {
-                    hist_collecte(tabcoll);
+                    hist_collecte(tabcoll,f);
                     break;
                 }
                 case 0:
@@ -155,10 +178,10 @@ int main()
             run = 1;
             while (run)
             {
-                printf("1. Afficher la liste prioritaire des conteneurs satur√©s ou en alerte\n");
-                printf("2. Statistiques de remplissage et de volume collect√© par zone\n");
+                printf("1. Afficher la liste prioritaire des conteneurs saturÈs ou en alerte\n");
+                printf("2. Statistiques de remplissage et de volume collectÈ par zone\n");
                 printf("3. Statistiques par camion\n");
-                printf("4. Tri des conteneurs ou des op√©rations\n");
+                printf("4. Tri des conteneurs ou des opÈrations\n");
                 printf("5. Recherche d'un conteneur ou d'un camion par ID, emplacement ou zone\n");
                 printf("0. precedent\n");
 
