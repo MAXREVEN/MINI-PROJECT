@@ -56,5 +56,6 @@ void dech_camion(Camion tabcam[],int n);
 void hist_collecte(Collecte *tabcoll,int f);
 struct tm maintenant(void);
 void date(char *buf, size_t size);
-Collecte format(Conteneur a, Camion b, int z);
+Collecte format(Conteneur a, Camion b, float z);
 #endif
+
