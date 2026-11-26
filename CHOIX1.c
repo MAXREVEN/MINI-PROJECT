@@ -7,7 +7,7 @@ Conteneur saisir_conteneur(){
     printf("saisir l'id du conteneur =");
     scanf("%d",&c.id_cont);
     printf("saisir l'emplacement du conteneur =");
-    scanf("%s",c.emplacement);
+    scanf("%59s",c.emplacement);
     printf("saisir la valeur maximuim d'occupation =");
     scanf("%f",&c.max_occup_cont);
     printf("saisir la valeur valeur seuil =");
@@ -45,7 +45,7 @@ int  modifier_conteneur(Conteneur tab[], int n, int id){
             switch (choix){
             case 1:{
                 printf("saisir le nouvel emplacement =");
-                gets(tab[i].emplacement);
+                scanf("%59s", tab[i].emplacement);
                 break;}
             case 2:{
                 printf("saisir le nouvel maximuim d'occupation =");
@@ -57,10 +57,12 @@ int  modifier_conteneur(Conteneur tab[], int n, int id){
                 break;}
             case 4:{
                 printf("saisir la nouvelle valeur d'occupation actuelle =");
-                scanf("%f",&tab[i].val_occup_cont);}
+                scanf("%f",&tab[i].val_occup_cont);
+                break;}
             case 5:{
                 printf("saisir la nouvelle zone =");
-                scanf("%d",&tab[i].id_zone);}
+                scanf("%d",&tab[i].id_zone);
+                break;}
             case 6:{
                 printf("saisir le nouvel etat = ");
                 scanf("%d",&tab[i].etat);
@@ -69,22 +71,20 @@ int  modifier_conteneur(Conteneur tab[], int n, int id){
                 printf("choix errone!\n");}
         }
         break;}
-    return 0;}}
+    }
+    return 0;}
 
 int supprimer_conteneur(Conteneur tab[], int *n, int id){
-    int pos=-1;
-    for (int i=0;i<*n;i++){
-        if (tab[i].id_cont==id){
-            pos=i;
-            break;}}
-    if (pos!=-1){
-            if (pos!=n){
-                    for (int i=pos;i<*n-1;i++){
-                    tab[i]=tab[i+1];
-                    *n--;}}
+    for (int i = 0; i < *n; i++){
+        if (tab[i].id_cont == id){
+            for (int j = i; j < *n - 1; j++)
+                tab[j] = tab[j+1];
             (*n)--;
-            return 1;}
-    return 0;}
+            return 1;
+        }
+    }
+    return 0;
+}
 
 Conteneur  *chercher_conteneur(Conteneur tab[], int n, int id){
     for (int i=0;i<n;i++){
@@ -116,4 +116,6 @@ void afficher_conteneur_par_zone(Conteneur tab[], int n, int id_zone){
 }
 void afficher_conteneurs(Conteneur tab[], int n){
     for(int i=0;i<n;i++) afficher_conteneur(tab[i]);}
+
+
 
