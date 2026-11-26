@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <windows.h>
 #include "FUNCTION.h"
 
 int main()
 {
-    int choix,run,n,m,f,z;
+    SetConsoleOutputCP(65001);
+    int choix, run, n = 0, m = 0, f = 0, z = 0;
     time_t secondes;
     struct tm instant;
     Conteneur tabcont[30];
