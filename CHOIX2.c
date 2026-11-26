@@ -11,9 +11,9 @@ Camion saisir_camion(){
     scanf("%19s",c.matricule);
     printf("saisir le maximum d'occupation du camion =");
     scanf("%f",&c.max_occup_cam);
-    printf("saisir la valuer d'occupation actuelle du camion");
+    printf("saisir la valuer d'occupation actuelle du camion =");
     scanf("%f",&c.val_occup_cam);
-    printf("saisir l'id de la zone du camion");
+    printf("saisir l'id de la zone du camion =");
     scanf("%d",&c.id_zone);
     printf("saisir l'etat du camion =");
     scanf("%d",&c.etat_dispo);

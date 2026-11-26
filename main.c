@@ -61,7 +61,7 @@ int main()
                 case 2:
                 {
                     int id;
-                    printf("saisir l'id du conteneur");
+                    printf("saisir l'id du conteneur =");
                     scanf("%i",&id);
                     modifier_conteneur(tabcont, n, id);
                     break;
@@ -81,10 +81,7 @@ int main()
                 }
                 case 5:
                 {
-                    int id_zone;
-                    printf("id du zone");
-                    scanf("%i",&id_zone);
-                    afficher_conteneur_par_zone(tabcont, n, id_zone);
+                    afficher_conteneurs_filtres_par_zones(tabzone,z,tabcont,n);
                     break;
                 }
                 case 0:
@@ -105,8 +102,7 @@ int main()
                 printf("2. Modifier la capacité ou les informations d'un camion\n");
                 printf("3. Supprimer un camion\n");
                 printf("4. Afficher tous les camions et leur taux de remplissage\n");
-                printf( "0. precedent\n" );
-
+                printf("0. precedent\n" );
                 printf("Donner votre choix: ");
                 scanf("%d", &choix);
                 switch (choix)
@@ -119,7 +115,7 @@ int main()
                 case 2:
                 {
                     int id_cam;
-                    printf("id du camion");
+                    printf("saisir l'id du camion =");
                     scanf("%i",&id_cam);
                     modifier_camion(tabcam, m, id_cam);
                     break;
@@ -127,7 +123,7 @@ int main()
                 case 3:
                 {
                     int id_cam;
-                    printf("id du camion");
+                    printf("saisir l'id du camion =");
                     scanf("%i",&id_cam);
                     supprimer_camion(tabcam, &m, id_cam);
                     break;

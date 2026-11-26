@@ -7,7 +7,7 @@ Conteneur saisir_conteneur(){
     printf("saisir l'id du conteneur =");
     scanf("%d",&c.id_cont);
     printf("saisir l'emplacement du conteneur =");
-    scanf("%59[^\n]",c.emplacement);
+    scanf(" %59[^\n]",c.emplacement);
     printf("saisir la valeur maximuim d'occupation =");
     scanf("%f",&c.max_occup_cont);
     printf("saisir la valeur valeur seuil =");
@@ -34,18 +34,18 @@ int  modifier_conteneur(Conteneur tab[], int n, int id){
     int choix;
     for (int i=0;i<n;i++){
         if (tab[i].id_cont==id){
-            printf("1. modifier l'emplacement du conteneur\n ");
+            printf("1. modifier l'emplacement du conteneur\n");
             printf("2. modifier le maximuim d'occupation\n");
             printf("3. modifier la valeur seuil\n");
             printf("4. modifier la valeur d'occupation actuelle\n");
             printf("5. modfidier la zone du conteneur\n" );
             printf("6. modfidier l'etat  du conteneur\n" );
-            printf("Donner votre choix: ");
+            printf("Donner votre choix =");
             scanf("%d", &choix);
             switch (choix){
             case 1:{
                 printf("saisir le nouvel emplacement =");
-                scanf("%59s", tab[i].emplacement);
+                scanf(" %59[^\n]",tab[i].emplacement);
                 break;}
             case 2:{
                 printf("saisir le nouvel maximuim d'occupation =");
@@ -109,13 +109,21 @@ void afficher_conteneur_par_zone(Conteneur tab[], int n, int id_zone){
     int trouve=0;
     for(int i=0;i<n;i++){
         if (tab[i].id_zone==id_zone){
-            printf("--- les informations du conteneur numero %d ---\n",i+1);
+            printf("--- les informations du conteneur numero %d ---\n",i);
             afficher_conteneur(tab[i]);
             trouve=1;}}
-    if (!trouve) printf("aucun conteneur dans la zone %d",id_zone);
+    if (!trouve) printf("aucun conteneur dans la zone %d\n",id_zone);
 }
 void afficher_conteneurs(Conteneur tab[], int n){
-    for(int i=0;i<n;i++) afficher_conteneur(tab[i]);}
+    for(int i=0;i<n;i++){
+            printf("--- les informations du conteneur numero %d ---\n",i+1);
+            afficher_conteneur(tab[i]);}
+}
 
+void afficher_conteneurs_filtres_par_zones(Zone z[],int f,Conteneur c[],int n){
+    for(int j=0;j<f;j++){
+        printf("---- Zone %d : %s ----",z[j].id_zone,z[j].nom_zone);
+        afficher_conteneur_par_zone(c,n,z[j].id_zone);}
+    }
 
 
