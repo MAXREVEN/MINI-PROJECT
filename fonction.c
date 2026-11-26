@@ -4,15 +4,13 @@
 #include "FUNCTION.h"
 
 
-Collecte format(Conteneur a,Camion b,int z)
+Collecte format(Conteneur a,Camion b,float z)
 {
     Collecte x;
     x.id_cont=a.id_cont;
     x.id_cam=b.id_cam;
-    do{
-        printf("ID:");
-        scanf("%d",&x.id_collecte);
-    } while (x.id_collecte < 10000000 || x.id_collecte > 99999999);  //id should be 8-digit long
+    printf("ID:");
+    scanf("%d",&x.id_collecte);
     date(x.date_hr_collecte, sizeof x.date_hr_collecte);
     x.volume_collecte=z;
     return x;
@@ -29,5 +27,3 @@ void date(char *d, size_t s)
              t.tm_mday, t.tm_mon + 1, t.tm_year + 1900,
              t.tm_hour, t.tm_min, t.tm_sec);
 }
-
-
