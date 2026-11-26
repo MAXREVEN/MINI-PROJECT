@@ -39,7 +39,9 @@ int main()
                 switch (choix)
                 {
                 case 1:
-                {   printf("1. Ajouter un conteneur\n");
+                {
+                    int c;
+                    printf("1. Ajouter un conteneur\n");
                     printf("2. Ajouter une zone\n");
                     scanf("%d", &c);
                     switch (c){
@@ -47,11 +49,12 @@ int main()
                         ajouter_conteneur(tabcont, &n);
                         break;}
                     case 2:{
-                        ajouter_zone(tabzone,&z)
+                        ajouter_zone(tabzone,&z);
                         break;}
                     default:
                         printf("choix errone!\n");
                     }
+                    break;
                 }
                 case 2:
                 {
