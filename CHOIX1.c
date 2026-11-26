@@ -7,7 +7,7 @@ Conteneur saisir_conteneur(){
     printf("saisir l'id du conteneur =");
     scanf("%d",&c.id_cont);
     printf("saisir l'emplacement du conteneur =");
-    scanf("%59s",c.emplacement);
+    scanf("%59[^\n]",c.emplacement);
     printf("saisir la valeur maximuim d'occupation =");
     scanf("%f",&c.max_occup_cont);
     printf("saisir la valeur valeur seuil =");
