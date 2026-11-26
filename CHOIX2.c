@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include "FUNCTION.h"
 Camion saisir_camion(){
@@ -7,24 +8,29 @@ Camion saisir_camion(){
     printf("saisir l'id du camion =");
     scanf("%d",&c.id_cam);
     printf("saisir la matricule du camion =");
-    scanf("%d",&c.matricule);
+    scanf("%19s",c.matricule);
     printf("saisir le maximum d'occupation du camion =");
     scanf("%f",&c.max_occup_cam);
     printf("saisir la valuer d'occupation actuelle du camion");
     scanf("%f",&c.val_occup_cam);
-    printf("saisir la zone du camion");
+    printf("saisir l'id de la zone du camion");
     scanf("%d",&c.id_zone);
     printf("saisir l'etat du camion =");
     scanf("%d",&c.etat_dispo);
     return c;}
 
-int  ajouter_camion(Camion tab[], int *n){
+int  ajouter_camion(Camion tab[], int *m){
     Camion c=saisir_camion();
-    for (int i=0;i<*n;i++){
-        if (tab[i].id_cam==c.id_cam) return 0;   //on doit eviter la redondance de c dans tab
-    tab[*n]=c;
-    (*n)++;
-    return 1;}}
+    for (int i=0;i<(*m);i++){
+        if (tab[i].id_cam==c.id_cam)
+        {
+            printf("camion deja existe\n");
+            return 0;   //on doit eviter la redondance de c dans tab
+        }
+    }
+    tab[*m]=c;
+    (*m)++;
+    return 1;}
 
 int  modifier_camion(Camion tab[], int n, int id_cam){
     int choix;
@@ -40,7 +46,7 @@ int  modifier_camion(Camion tab[], int n, int id_cam){
             switch (choix){
             case 1:{
                 printf("saisir la nouvelle matricule =");
-                scanf("%d",&tab[i].matricule);
+                scanf("%19s",tab[i].matricule);
                 break;}
             case 2:{
                 printf("saisir le nouvel maximuim d'occupation =");
@@ -48,34 +54,37 @@ int  modifier_camion(Camion tab[], int n, int id_cam){
                 break;}
             case 3:{
                 printf("saisir la nouvelle valeur d'occupation actuelle =");
-                scanf("%d",&tab[i].val_occup_cam);}
+                scanf("%f",&tab[i].val_occup_cam);}
+                break;
             case 4:{
                 printf("saisir la nouvelle zone =");
                 scanf("%d",&tab[i].id_zone);}
+                break;
             case 5:{
                 printf("saisir le nouvel etat = ");
                 scanf("%d",&tab[i].etat_dispo);
                 break;}
             default:{
-                printf("choix errone!\n");}
+                printf("choix errone!\n");
+                }
+            }
+            return 1;
         }
-        break;}
-    return 0;}}
+    }
+    printf("camion introuvable\n");
+    return 0;}
 
 int supprimer_camion(Camion tab[], int *n, int id){
-    int pos=-1;
-    for (int i=0;i<*n;i++){
-        if (tab[i].id_cam==id){
-            pos=i;
-            break;}}
-    if (pos!=-1){
-            if (pos!=n){
-                    for (int i=pos;i<*n-1;i++){
-                    tab[i]=tab[i+1];
-                    *n--;}}
+    for (int i = 0; i < *n; i++){
+        if (tab[i].id_cam == id){
+            for (int j = i; j < *n - 1; j++)
+                tab[j] = tab[j+1];
             (*n)--;
-            return 1;}
-    return 0;}
+            return 1;
+        }
+    }
+    return 0;
+}
 
 Camion  *chercher_camion_disponible(Camion tab[], int n){
     for (int i=0;i<n;i++){
@@ -112,19 +121,24 @@ Zone saisir_zone(){
     Zone z;
     printf("saisir l'id de la zone =");
     scanf("%d",&z.id_zone);
-    printf("saisir le nom de la zone =");
-    gets(z.nom_zone);
-    printf("saisir la description de la zone =");
-    gets(z.description);
-    return z;}
+    getchar();                      // consume the '\n' left by scanf
+    printf("saisir le nom de la zone = ");
+    fgets(z.nom_zone, sizeof(z.nom_zone), stdin);
+    z.nom_zone[strcspn(z.nom_zone, "\n")] = '\0';   // remove the trailing '\n'
+    printf("saisir la description de la zone = ");
+    fgets(z.description, sizeof(z.description), stdin);
+    z.description[strcspn(z.description, "\n")] = '\0';
+    return z;
+}
 
 int  ajouter_zone(Zone tab[], int *n){
     Zone z=saisir_zone();
     for (int i=0;i<*n;i++){
         if (tab[i].id_zone==z.id_zone) return 0;   //on doit eviter la redondance de z dans tab
+    }
     tab[*n]=z;
     (*n)++;
-    return 1;}}
+    return 1;}
 
 int  modifier_zone(Zone tab[], int n, int id_zone){
     int choix;
@@ -137,40 +151,35 @@ int  modifier_zone(Zone tab[], int n, int id_zone){
             switch (choix){
             case 1:{
                 printf("saisir le nouvel nom de la zone =");
-                scanf("%d",&tab[i].nom_zone);
+                scanf(" %49[^\n]", tab[i].nom_zone);
                 break;}
             case 2:{
                 printf("saisir la nouvelle description de la zone =");
-                gets(tab[i].description);
+                scanf(" %99[^\n]", tab[i].description);
                 break;}
             default:{
                 printf("choix errone!\n");}
         }
         break;}
-    return 0;}}
+    }
+    return 0;}
 
 int supprimer_zone(Zone tab[], int *n, int id){
-    int pos=-1;
-    for (int i=0;i<*n;i++){
-        if (tab[i].id_zone==id){
-            pos=i;
-            break;}}
-    if (pos!=-1){
-            if (pos!=n){
-                    for (int i=pos;i<*n-1;i++){
-                    tab[i]=tab[i+1];
-                    *n--;}}
+    for (int i = 0; i < *n; i++){
+        if (tab[i].id_zone == id){
+            for (int j = i; j < *n - 1; j++)
+                tab[j] = tab[j+1];
             (*n)--;
-            return 1;}
-    return 0;}
+            return 1;
+        }
+    }
+    return 0;
+}
 
 void afficher_zones(Zone tab[], int n){
     for(int i=0;i<n;i++){
             printf("--- les informations de la zone identifie par %d ---\n",tab[i].id_zone);
             printf("le nom de la zone : %s\n",tab[i].nom_zone);
-            printf("la description de la zone : %s\n",tab[i].description);}}
-
-
-
-
-
+            printf("la description de la zone : %s\n",tab[i].description);
+            }
+}
